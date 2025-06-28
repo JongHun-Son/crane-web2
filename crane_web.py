@@ -80,6 +80,9 @@ if submitted:
     # ✅ 엑셀 파일 로컬 저장
     wb.save(filepath)
 
+    # ✅ 여기서 출력!
+    st.write(f"📁 저장 경로: `{filepath}`")
+
     # ✅ Streamlit 다운로드용 메모리 버퍼 생성
     buffer = BytesIO()
     wb.save(buffer)
@@ -93,5 +96,3 @@ if submitted:
         file_name=filename,
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
-
-st.write(f"📁 저장 경로: `{filepath}`")
