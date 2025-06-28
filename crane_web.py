@@ -93,3 +93,5 @@ if submitted:
         file_name=filename,
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
+st.write(f"📁 저장 경로: `{filepath}`")
