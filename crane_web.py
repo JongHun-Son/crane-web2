@@ -6,9 +6,9 @@ from datetime import datetime
 import os
 
 # ✅ 앱 실행 위치 기준 절대 경로 사용
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # 현재 .py 파일 위치
-SAVE_FOLDER = os.path.join(BASE_PATH, "계획서기록")  # ./계획서기록
-os.makedirs(SAVE_FOLDER, exist_ok=True)
+# BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # 현재 .py 파일 위치
+# SAVE_FOLDER = os.path.join(BASE_PATH, "계획서기록")  # ./계획서기록
+# os.makedirs(SAVE_FOLDER, exist_ok=True)
 
 # ✅ Streamlit 페이지 설정
 st.set_page_config(page_title="중량물 작업계획서", page_icon="📝", layout="centered")
@@ -74,13 +74,13 @@ if submitted:
     safe_name = data.get('작업내용', '작업').replace(" ", "_") or "작업"
     safe_date = data.get('작업일자', datetime.today().strftime('%Y-%m-%d'))
     filename = f"{safe_date}_{safe_name}.xlsx"
-    filepath = os.path.join(SAVE_FOLDER, filename)
+    # filepath = os.path.join(SAVE_FOLDER, filename)
 
     # ✅ 엑셀 파일 로컬 저장
-    wb.save(filepath)
+    # wb.save(filepath)
 
     # ✅ 여기서 출력!
-    st.write(f"📁 저장 경로: `{filepath}`")
+    # st.write(f"📁 저장 경로: `{filepath}`")
 
     # ✅ Streamlit 다운로드용 메모리 버퍼 생성
     buffer = BytesIO()
