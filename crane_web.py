@@ -17,16 +17,15 @@ st.markdown("필요한 정보를 입력하고 엑셀 파일을 생성하세요."
 
 # ✅ 입력 항목
 fields = {
-    "작업명": "",
     "작업일자": datetime.today().strftime('%Y-%m-%d'),
-    "작업 위치": "",
-    "중량물 명칭": "",
-    "중량": "",
-    "크기": "",
-    "사용 장비": "",
-    "작업 책임자": "",
-    "위험요소": "",
-    "안전조치": ""
+    "작업장소": "",
+    "장비 No.": "",
+    "대상": "",
+    "성명": "",
+    "작업내용": "",
+    "근무시간": "",
+    "건강상태": "",
+    "비고": ""
 }
 data = {}
 
@@ -38,9 +37,9 @@ with st.form("form"):
 
 # ✅ 엑셀 파일 생성 및 저장
 if submitted:
-    # 필수 필드 검사 (작업명, 작업일자)
-    if not data.get("작업명"):
-        st.error("❗ '작업명'은 반드시 입력해야 합니다.")
+    # 필수 필드 검사 (작업내용, 작업일자)
+    if not data.get("작업내용"):
+        st.error("❗ '작업내용'은 반드시 입력해야 합니다.")
         st.stop()
 
     wb = Workbook()
@@ -72,7 +71,7 @@ if submitted:
     ws.column_dimensions["B"].width = 50
 
     # ✅ 파일명 안전하게 생성
-    safe_name = data.get('작업명', '작업').replace(" ", "_") or "작업"
+    safe_name = data.get('작업내용', '작업').replace(" ", "_") or "작업"
     safe_date = data.get('작업일자', datetime.today().strftime('%Y-%m-%d'))
     filename = f"{safe_date}_{safe_name}.xlsx"
     filepath = os.path.join(SAVE_FOLDER, filename)
