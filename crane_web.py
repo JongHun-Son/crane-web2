@@ -88,7 +88,7 @@ if submitted:
     buffer.seek(0)
 
     # ✅ 사용자 알림 및 다운로드 버튼
-    st.success(f"✅ 엑셀 파일 생성 완료!\n\n📁 저장 위치: `{filepath}`")
+    st.success(f"✅ 엑셀 파일 생성 완료!")
     st.download_button(
         label="📥 엑셀 파일 다운로드",
         data=buffer,
